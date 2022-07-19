@@ -3,7 +3,8 @@ package telran.people;
 import java.util.Arrays;
 
 public class CompanyArray implements ICompany {
-	protected  Employee[] employees = new Employee[0];
+	protected Employee[] employees = new Employee[0];
+
 	@Override
 	public boolean addEmployee(Employee empl) {
 		if (getEmployee(empl.getId()) != null) {
@@ -23,7 +24,7 @@ public class CompanyArray implements ICompany {
 		Employee res = employees[index];
 		Employee[] tmp = new Employee[employees.length - 1];
 		System.arraycopy(employees, 0, tmp, 0, index);
-		System.arraycopy(tmp, index, employees, index + 1, tmp.length - index);
+		System.arraycopy(employees, index + 1, tmp, index, tmp.length - index);
 		employees = tmp;
 		return res;
 	}
