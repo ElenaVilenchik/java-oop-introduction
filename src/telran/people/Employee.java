@@ -1,7 +1,7 @@
 package telran.people;
 
 public class Employee extends Person {
-	public int basicSalary;
+	private int basicSalary;
 
 	public Employee(long id, int birthYear, String email, int basicSalary) {
 		super(id, birthYear, email);

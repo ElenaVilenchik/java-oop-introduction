@@ -1,6 +1,6 @@
 package telran.people;
 
-public class Person {
+public class Person implements Comparable<Person> {
 
 	private long id;
 	private int birthYear;
@@ -26,5 +26,10 @@ public class Person {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	@Override
+	public int compareTo(Person o) {
+		return Long.compare(this.id, o.id);
 	}
 }

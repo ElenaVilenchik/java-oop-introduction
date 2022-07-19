@@ -7,7 +7,7 @@ public class SalesPerson extends Employee {
 	public SalesPerson(long id, int birthYear, String email, int basicSalary, int sales, int persentPay) {
 		super(id, birthYear, email, basicSalary);
 		setSales(sales);
-		setPersentPay(percentPay);
+		setPersentPay(persentPay);
 	}
 
 	public void setSales(int sales) {
@@ -18,8 +18,8 @@ public class SalesPerson extends Employee {
 		this.percentPay = percentPay;
 	}
 
-	@Override
+	// @Override
 	public int computePay() {
-		return (basicSalary + Math.round(sales * percentPay / 100));
+		return (int) (super.computePay() + Math.round(sales / 100.0 * percentPay));
 	}
 }

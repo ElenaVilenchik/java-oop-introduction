@@ -18,8 +18,8 @@ public class WageEmployee extends Employee {
 		this.hours = hours;
 	}
 
-	@Override
+	//@Override
 	public int computePay() {
-		return (basicSalary + wage * hours);
+		return super.computePay() + wage * hours;
 	}
 }
