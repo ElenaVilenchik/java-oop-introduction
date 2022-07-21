@@ -1,6 +1,7 @@
 package telran.people;
 
 public interface ICompany {
+	
 	boolean addEmployee(Employee empl);
 
 	Employee removeEmployee(long id);
