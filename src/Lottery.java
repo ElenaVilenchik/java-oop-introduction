@@ -3,16 +3,17 @@
  * implement rateCombination() with complexity O[N], where N=7
  */
 public class Lottery {
-	int[] lut = new int[50];
-
+	private int[] winningCombination;
 	/**
 	 * Constructor
 	 * @param winningCombination - array of 7 unique numbers in range [1 to 49] (no need to check)        
 	 */
 	public Lottery(int[] winningCombination) {
+		int[] lut = new int[50];
 		for (int i = 0; i < winningCombination.length; i++) {
-			lut[winningCombination[i]] = 1;
+			lut[winningCombination[i]] = winningCombination[i];
 		}
+		this.winningCombination = lut;
 	}
 
 	/**
@@ -29,7 +30,7 @@ public class Lottery {
 
 		int rate = 0;
 		for (int i = 0; i < playerCombination.length; i++) {
-			if (lut[playerCombination[i]] != 0) {
+			if ( winningCombination[playerCombination[i]]!=0) {
 				rate++;
 			}
 		}
