@@ -1,7 +1,9 @@
 package telran.people;
 
-public class Person implements Comparable<Person> {
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
+public class Person implements Comparable<Person> {
 	private long id;
 	private int birthYear;
 	private String email;
@@ -12,20 +14,26 @@ public class Person implements Comparable<Person> {
 		setEmail(email);
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		Pattern pattern = Pattern.compile("\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*\\.\\w{2,4}");
+		Matcher matcher = pattern.matcher(email);
+		boolean matches = matcher.matches();
+		if (!matches) {
+			throw new IllegalArgumentException(String.format("%s - wrong email address", email));
+		}
+		this.email = email;
+	}
+
 	public long getId() {
 		return id;
 	}
 
 	public int getBirthYear() {
 		return birthYear;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	@Override
